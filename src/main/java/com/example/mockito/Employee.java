@@ -8,10 +8,10 @@ public class Employee {
     private String name;
     private String lastName;
     private String patronymic;
-    private int id;
+
     private int department;
     private int salary;
-    private static int idCounter;
+
 
     public Employee(String name, String lastName, String patronymic, int department, int salary) {
         this.name = capitalize(name.toLowerCase());
@@ -25,7 +25,6 @@ public class Employee {
         if (salary >= 0) {
             this.salary = salary;
         }
-        id = idCounter++;
     }
 
 
@@ -41,9 +40,6 @@ public class Employee {
         return patronymic;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public int getDepartment() {
         return department;
@@ -84,17 +80,17 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && department == employee.department && salary == employee.salary && Objects.equals(name, employee.name) && Objects.equals(lastName, employee.lastName) && Objects.equals(patronymic, employee.patronymic);
+        return  department == employee.department && salary == employee.salary && Objects.equals(name, employee.name) && Objects.equals(lastName, employee.lastName) && Objects.equals(patronymic, employee.patronymic);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, lastName, patronymic, id, department, salary);
+        return Objects.hash(name, lastName, patronymic,  department, salary);
     }
 
     @Override
     public String toString() {
-        return "Employee{" + " id=" + id +
+        return "Employee{"   +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", patronymic='" + patronymic + '\'' +
